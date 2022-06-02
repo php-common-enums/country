@@ -10007,6 +10007,26 @@ class CountryEnumTest extends TestCase
         );
     }
 
+    public function testFromIso31662(): void
+    {
+        foreach (CountryEnum::cases() as $case) {
+            self::assertSame(
+                $case,
+                CountryEnum::tryFromIso31662($case->getIso31662())
+            );
+        }
+    }
+
+    public function testFromIso31663(): void
+    {
+        foreach (CountryEnum::cases() as $case) {
+            self::assertSame(
+                $case,
+                CountryEnum::tryFromIso31663($case->getIso31663())
+            );
+        }
+    }
+
     public function testGetExpectedCallingCode(): void
     {
         self::assertEquals(
